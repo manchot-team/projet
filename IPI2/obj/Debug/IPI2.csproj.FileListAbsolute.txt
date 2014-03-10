@@ -7,3 +7,4 @@ C:\Users\Simon\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.Properties.Resources.
 C:\Users\Simon\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.csproj.GenerateResource.Cache
 C:\Users\Simon\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.exe
 C:\Users\Simon\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.pdb
+C:\Users\Simon\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.Form1.resources

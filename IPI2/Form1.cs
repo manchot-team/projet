@@ -16,5 +16,19 @@ namespace IPI2
         {
             InitializeComponent();//MOTHER FUCKERSSS
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Ouvrir un fichier TDMS";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                   //Code à changer ici pour fichier TDMS
+                System.IO.StreamReader sr = new
+                System.IO.StreamReader(ofd.FileName);
+                MessageBox.Show(sr.ReadToEnd());
+                sr.Close();
+            }
+        }
     }
 }
