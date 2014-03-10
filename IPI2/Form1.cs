@@ -14,7 +14,7 @@ namespace IPI2
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();//MOTHER FUCKERSSS
         }
     }
 }
