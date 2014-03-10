@@ -8,3 +8,12 @@ C:\Users\Simon\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.csproj.GenerateResour
 C:\Users\Simon\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.exe
 C:\Users\Simon\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.pdb
 C:\Users\Simon\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.Form1.resources
+C:\Users\Kevin\Documents\GitHub\projet\IPI2\bin\Debug\IPI2.exe.config
+C:\Users\Kevin\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.exe
+C:\Users\Kevin\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.pdb
+C:\Users\Kevin\Documents\GitHub\projet\IPI2\bin\Debug\IPI2.exe
+C:\Users\Kevin\Documents\GitHub\projet\IPI2\bin\Debug\IPI2.pdb
+C:\Users\Kevin\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.csprojResolveAssemblyReference.cache
+C:\Users\Kevin\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.Form1.resources
+C:\Users\Kevin\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.Properties.Resources.resources
+C:\Users\Kevin\Documents\GitHub\projet\IPI2\obj\Debug\IPI2.csproj.GenerateResource.Cache
