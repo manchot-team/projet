@@ -21,3 +21,4 @@ C:\Users\Simon\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.Form1.r
 C:\Users\Simon\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.Properties.Resources.resources
 C:\Users\Simon\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.csproj.GenerateResource.Cache
 C:\Users\Simon\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.exe.licenses
+C:\Users\Kevin\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.csprojResolveAssemblyReference.cache

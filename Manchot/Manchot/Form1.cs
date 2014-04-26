@@ -70,10 +70,14 @@ namespace Manchot
             file.Close();
 
             //Console.WriteLine(numChanValues.ToString());
-            //for (int i = 0; i < 90; i++)
-            //{
-            //    Console.WriteLine(measuredData[i] + "\n");
-            //}
+            double max = 0;
+            for (int i = 0; i < 90; i++)
+            {
+                if (measuredData[i] > max)
+                    max = measuredData[i];
+                
+            }
+            Console.WriteLine("Maximum des valeurs:" +max + "\n");
 
             waveformGraph1.PlotYAppend(measuredData);
  
