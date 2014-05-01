@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.waveformGraph1 = new NationalInstruments.UI.WindowsForms.WaveformGraph();
+            this.waveformPlot1 = new NationalInstruments.UI.WaveformPlot();
             this.xAxis1 = new NationalInstruments.UI.XAxis();
             this.yAxis1 = new NationalInstruments.UI.YAxis();
-            this.waveformPlot1 = new NationalInstruments.UI.WaveformPlot();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_open_file = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.waveformGraph1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,22 +55,22 @@
             this.waveformPlot1.XAxis = this.xAxis1;
             this.waveformPlot1.YAxis = this.yAxis1;
             // 
-            // button1
+            // btn_open_file
             // 
-            this.button1.Location = new System.Drawing.Point(533, 292);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_open_file.Location = new System.Drawing.Point(12, 292);
+            this.btn_open_file.Name = "btn_open_file";
+            this.btn_open_file.Size = new System.Drawing.Size(75, 23);
+            this.btn_open_file.TabIndex = 2;
+            this.btn_open_file.Text = "Ouvrir fichier";
+            this.btn_open_file.UseVisualStyleBackColor = true;
+            this.btn_open_file.Click += new System.EventHandler(this.btn_open_file_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 327);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_open_file);
             this.Controls.Add(this.waveformGraph1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -85,7 +85,7 @@
         private NationalInstruments.UI.WaveformPlot waveformPlot1;
         private NationalInstruments.UI.XAxis xAxis1;
         private NationalInstruments.UI.YAxis yAxis1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_open_file;
     }
 }
 

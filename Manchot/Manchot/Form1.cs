@@ -32,8 +32,23 @@ namespace Manchot
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btn_open_file_Click(object sender, EventArgs e)
         {
+            String input = string.Empty;
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter ="tdms files (*.tdms)|*.tdms|All files (*.*)|*.*";
+            dialog.InitialDirectory = "C:";
+            dialog.Title = "Select a tdms file";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                input = dialog.FileName;
+            }
+            if (input == String.Empty)
+            {
+                return;
+            }
+            Console.WriteLine("Chemin fichier : " + input);
             long numChanValues;
             double[] measuredData;
             TdmsFile file;
@@ -41,7 +56,7 @@ namespace Manchot
             TdmsChannelCollection channels;
 
             //Open TDMS file
-            file = new TdmsFile("C:\\23-00-00 plateau 9.tdms", TdmsFileAccess.Read);
+            file = new TdmsFile(input, TdmsFileAccess.Read);
 
             //Read group data
             channelGroups = file.GetChannelGroups();
@@ -61,6 +76,7 @@ namespace Manchot
             //}
 
             waveformGraph1.PlotYAppend(measuredData);
+ 
         }
     }
 }
