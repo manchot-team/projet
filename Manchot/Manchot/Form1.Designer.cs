@@ -73,7 +73,7 @@
             this.Controls.Add(this.btn_open_file);
             this.Controls.Add(this.waveformGraph1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SupraPingu";
             ((System.ComponentModel.ISupportInitialize)(this.waveformGraph1)).EndInit();
             this.ResumeLayout(false);
 
