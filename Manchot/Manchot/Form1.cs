@@ -71,7 +71,7 @@ namespace Manchot
 
             //Console.WriteLine(numChanValues.ToString());
             double max = 0;
-            for (int i = 0; i < 90; i++)
+            for (int i = 0; i < measuredData.Length; i++)
             {
                 if (measuredData[i] > max)
                     max = measuredData[i];
@@ -79,7 +79,8 @@ namespace Manchot
             }
             Console.WriteLine("Maximum des valeurs:" +max + "\n");
 
-            waveformGraph1.PlotYAppend(measuredData);
+            waveformGraph1.PlotY(measuredData);
+            //waveformGraph1.PlotX(measuredData);
  
         }
     }

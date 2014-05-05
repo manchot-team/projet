@@ -42,7 +42,7 @@
             this.waveformGraph1.Name = "waveformGraph1";
             this.waveformGraph1.Plots.AddRange(new NationalInstruments.UI.WaveformPlot[] {
             this.waveformPlot1});
-            this.waveformGraph1.Size = new System.Drawing.Size(609, 262);
+            this.waveformGraph1.Size = new System.Drawing.Size(833, 336);
             this.waveformGraph1.TabIndex = 0;
             this.waveformGraph1.UseColorGenerator = true;
             this.waveformGraph1.XAxes.AddRange(new NationalInstruments.UI.XAxis[] {
@@ -57,7 +57,7 @@
             // 
             // btn_open_file
             // 
-            this.btn_open_file.Location = new System.Drawing.Point(12, 292);
+            this.btn_open_file.Location = new System.Drawing.Point(12, 354);
             this.btn_open_file.Name = "btn_open_file";
             this.btn_open_file.Size = new System.Drawing.Size(75, 23);
             this.btn_open_file.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 327);
+            this.ClientSize = new System.Drawing.Size(857, 389);
             this.Controls.Add(this.btn_open_file);
             this.Controls.Add(this.waveformGraph1);
             this.Name = "Form1";
