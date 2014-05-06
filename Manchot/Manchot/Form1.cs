@@ -22,6 +22,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
+using System.IO;
 
 namespace Manchot
 {
@@ -32,7 +34,9 @@ namespace Manchot
             InitializeComponent();
         }
 
+        //Initialisation variable globale
         double[][] measuredData = new double[3][];
+        TdmsFile[] files = new TdmsFile[3];
 
         private void btn_open_file_Click(object sender, EventArgs e)
         {
@@ -53,7 +57,7 @@ namespace Manchot
             //Console.WriteLine("Chemin fichier : " + input);
             long numChanValues;
             
-            TdmsFile[] files = new TdmsFile[3];
+            
             TdmsChannelGroupCollection channelGroups;
             TdmsChannelCollection channels;
 
@@ -162,5 +166,115 @@ namespace Manchot
             waveformPlot4.PlotY(measuredDataFusionned);
 
         }
+
+        private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Déclaration des variables
+            String[] input = new String[3];
+            OpenFileDialog dialog = new OpenFileDialog();
+            TdmsChannelGroupCollection channelGroups;
+            TdmsChannelCollection channels;
+            long numChanValues;
+
+
+            dialog.Filter = "tdms files (*.tdms)|*.tdms|All files (*.*)|*.*";
+            dialog.Multiselect = true;
+            dialog.InitialDirectory = "C:";
+            dialog.Title = "Select a tdms file";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                input = dialog.FileNames;
+            }
+
+            
+
+
+            Console.WriteLine("3 fichiers ouvert");
+
+            //Open TDMS file
+            for (int i = 0; i < input.Length; i++)
+            {
+                files[i] = new TdmsFile(input[i], TdmsFileAccess.Read);
+                Console.WriteLine("FILE[" + i + "] = " + files[i].Path + "\n");
+                // Recupération des métadata : 
+                DateTime creationTime = File.GetLastWriteTime(files[i].Path);
+                Console.WriteLine("FILE[" + i + "] CREATION = " + creationTime + "\n");
+            }
+
+           
+
+            // Lecture des données TDMS :
+            //Console.WriteLine(files.Length);
+            for (int i = 0; i < files.Length; i++)
+            {
+                channelGroups = files[i].GetChannelGroups();
+                channels = channelGroups[0].GetChannels();
+                numChanValues = channels[0].DataCount;
+                //Console.WriteLine(numChanValues);
+                measuredData[i] = channels[0].GetData<double>();
+                files[i].Close();
+            }
+
+            // Affichage des courbes :
+            waveformPlot1.PlotY(measuredData[0]);
+            waveformPlot2.PlotY(measuredData[1]);
+            waveformPlot3.PlotY(measuredData[2]);
+
+            // Affichage d'un message flash dans la bar de status: 
+            Thread affiche = new Thread(new ParameterizedThreadStart(MessageFlash));
+            affiche.Start("Fichiers ouverts");
+
+            // Activation des menus Affichage et Analyse
+            affichageToolStripMenuItem.Enabled = true;
+            analyseToolStripMenuItem.Enabled = true;
+
+
+        }
+
+        public void MessageFlash(Object message)
+        {
+            toolStripStatusLbl.Visible = true;
+            toolStripStatusLbl.Text = (String) message;
+            //this.Refresh();
+            System.Threading.Thread.Sleep(4000);
+            toolStripStatusLbl.Visible = false;
+        }
+
+        private void lancerLanalyseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            double max = 0;
+            double[] data_a_regarder = new double[30];
+            bool trouve = false;
+            for (int i = 0, j = 0; i < measuredData[1].Length; i++)
+            {
+                if (measuredData[1][i] > max)
+                {
+                    max = measuredData[1][i];
+                }
+
+                if (measuredData[1][i] >= 2 && !trouve)
+                {
+                    data_a_regarder[j] = i;
+                    j++;
+                    trouve = true;
+                }
+
+                if (measuredData[1][i] <= 2 && trouve)
+                {
+                    trouve = false;
+                }
+
+            }
+
+            Console.Write(data_a_regarder);
+
+            foreach (double index in data_a_regarder)
+            {
+                listBox1.Items.Add(index);
+                Console.WriteLine(index);
+            }
+        }
+
     }
+
 }

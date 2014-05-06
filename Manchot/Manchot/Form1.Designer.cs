@@ -33,13 +33,27 @@
             this.xAxis1 = new NationalInstruments.UI.XAxis();
             this.yAxis1 = new NationalInstruments.UI.YAxis();
             this.waveformPlot2 = new NationalInstruments.UI.WaveformPlot();
-            this.btn_open_file = new System.Windows.Forms.Button();
             this.waveformPlot3 = new NationalInstruments.UI.WaveformPlot();
+            this.waveformPlot4 = new NationalInstruments.UI.WaveformPlot();
+            this.btn_open_file = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.waveformPlot4 = new NationalInstruments.UI.WaveformPlot();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fichiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analyseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.balanceCourbe1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.balanceCourbe2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.balanceCourbe3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sommeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lancerLanalyseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ouvrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.waveformGraph1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // waveformGraph1
@@ -69,6 +83,16 @@
             this.waveformPlot2.XAxis = this.xAxis1;
             this.waveformPlot2.YAxis = this.yAxis1;
             // 
+            // waveformPlot3
+            // 
+            this.waveformPlot3.XAxis = this.xAxis1;
+            this.waveformPlot3.YAxis = this.yAxis1;
+            // 
+            // waveformPlot4
+            // 
+            this.waveformPlot4.XAxis = this.xAxis1;
+            this.waveformPlot4.YAxis = this.yAxis1;
+            // 
             // btn_open_file
             // 
             this.btn_open_file.Location = new System.Drawing.Point(12, 385);
@@ -78,11 +102,6 @@
             this.btn_open_file.Text = "Ouvrir fichier";
             this.btn_open_file.UseVisualStyleBackColor = true;
             this.btn_open_file.Click += new System.EventHandler(this.btn_open_file_Click);
-            // 
-            // waveformPlot3
-            // 
-            this.waveformPlot3.XAxis = this.xAxis1;
-            this.waveformPlot3.YAxis = this.yAxis1;
             // 
             // button1
             // 
@@ -113,25 +132,124 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // waveformPlot4
+            // menuStrip1
             // 
-            this.waveformPlot4.XAxis = this.xAxis1;
-            this.waveformPlot4.YAxis = this.yAxis1;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fichiersToolStripMenuItem,
+            this.affichageToolStripMenuItem,
+            this.analyseToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1058, 24);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fichiersToolStripMenuItem
+            // 
+            this.fichiersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ouvrirToolStripMenuItem});
+            this.fichiersToolStripMenuItem.Name = "fichiersToolStripMenuItem";
+            this.fichiersToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.fichiersToolStripMenuItem.Text = "Fichiers";
+            // 
+            // affichageToolStripMenuItem
+            // 
+            this.affichageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.balanceCourbe1ToolStripMenuItem,
+            this.balanceCourbe2ToolStripMenuItem,
+            this.balanceCourbe3ToolStripMenuItem,
+            this.sommeToolStripMenuItem});
+            this.affichageToolStripMenuItem.Enabled = false;
+            this.affichageToolStripMenuItem.Name = "affichageToolStripMenuItem";
+            this.affichageToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.affichageToolStripMenuItem.Text = "Affichage";
+            // 
+            // analyseToolStripMenuItem
+            // 
+            this.analyseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lancerLanalyseToolStripMenuItem});
+            this.analyseToolStripMenuItem.Enabled = false;
+            this.analyseToolStripMenuItem.Name = "analyseToolStripMenuItem";
+            this.analyseToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.analyseToolStripMenuItem.Text = "Analyse";
+            // 
+            // balanceCourbe1ToolStripMenuItem
+            // 
+            this.balanceCourbe1ToolStripMenuItem.Name = "balanceCourbe1ToolStripMenuItem";
+            this.balanceCourbe1ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.balanceCourbe1ToolStripMenuItem.Text = "Balance/Courbe 1";
+            // 
+            // balanceCourbe2ToolStripMenuItem
+            // 
+            this.balanceCourbe2ToolStripMenuItem.Name = "balanceCourbe2ToolStripMenuItem";
+            this.balanceCourbe2ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.balanceCourbe2ToolStripMenuItem.Text = "Balance/Courbe 2";
+            // 
+            // balanceCourbe3ToolStripMenuItem
+            // 
+            this.balanceCourbe3ToolStripMenuItem.Name = "balanceCourbe3ToolStripMenuItem";
+            this.balanceCourbe3ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.balanceCourbe3ToolStripMenuItem.Text = "Balance/Courbe 3";
+            // 
+            // sommeToolStripMenuItem
+            // 
+            this.sommeToolStripMenuItem.Name = "sommeToolStripMenuItem";
+            this.sommeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.sommeToolStripMenuItem.Text = "Somme";
+            // 
+            // lancerLanalyseToolStripMenuItem
+            // 
+            this.lancerLanalyseToolStripMenuItem.Name = "lancerLanalyseToolStripMenuItem";
+            this.lancerLanalyseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.lancerLanalyseToolStripMenuItem.Text = "Lancer l\'analyse";
+            this.lancerLanalyseToolStripMenuItem.Click += new System.EventHandler(this.lancerLanalyseToolStripMenuItem_Click);
+            // 
+            // ouvrirToolStripMenuItem
+            // 
+            this.ouvrirToolStripMenuItem.Name = "ouvrirToolStripMenuItem";
+            this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ouvrirToolStripMenuItem.Text = "Ouvrir";
+            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.ouvrirToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLbl});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 413);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1058, 22);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLbl
+            // 
+            this.toolStripStatusLbl.Name = "toolStripStatusLbl";
+            this.toolStripStatusLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.toolStripStatusLbl.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLbl.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 417);
+            this.ClientSize = new System.Drawing.Size(1058, 435);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_open_file);
             this.Controls.Add(this.waveformGraph1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "SupraPingu";
             ((System.ComponentModel.ISupportInitialize)(this.waveformGraph1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -148,6 +266,18 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button2;
         private NationalInstruments.UI.WaveformPlot waveformPlot4;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fichiersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ouvrirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem affichageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem balanceCourbe1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem balanceCourbe2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem balanceCourbe3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sommeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem analyseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lancerLanalyseToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLbl;
     }
 }
 
