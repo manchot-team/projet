@@ -38,19 +38,19 @@
             this.btn_open_file = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ouvrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.analyseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.balanceCourbe1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.balanceCourbe2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.balanceCourbe3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sommeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analyseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lancerLanalyseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ouvrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.touteLesCourbesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.waveformGraph1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -122,16 +122,6 @@
             this.listBox1.TabIndex = 4;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(184, 386);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -152,9 +142,17 @@
             this.fichiersToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.fichiersToolStripMenuItem.Text = "Fichiers";
             // 
+            // ouvrirToolStripMenuItem
+            // 
+            this.ouvrirToolStripMenuItem.Name = "ouvrirToolStripMenuItem";
+            this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.ouvrirToolStripMenuItem.Text = "Ouvrir";
+            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.ouvrirToolStripMenuItem_Click);
+            // 
             // affichageToolStripMenuItem
             // 
             this.affichageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.touteLesCourbesToolStripMenuItem,
             this.balanceCourbe1ToolStripMenuItem,
             this.balanceCourbe2ToolStripMenuItem,
             this.balanceCourbe3ToolStripMenuItem,
@@ -163,6 +161,38 @@
             this.affichageToolStripMenuItem.Name = "affichageToolStripMenuItem";
             this.affichageToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.affichageToolStripMenuItem.Text = "Affichage";
+            // 
+            // balanceCourbe1ToolStripMenuItem
+            // 
+            this.balanceCourbe1ToolStripMenuItem.AccessibleName = "1";
+            this.balanceCourbe1ToolStripMenuItem.Name = "balanceCourbe1ToolStripMenuItem";
+            this.balanceCourbe1ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.balanceCourbe1ToolStripMenuItem.Text = "Balance/Courbe 1";
+            this.balanceCourbe1ToolStripMenuItem.Click += new System.EventHandler(this.balanceCourbeToolStripMenuItem_Click);
+            // 
+            // balanceCourbe2ToolStripMenuItem
+            // 
+            this.balanceCourbe2ToolStripMenuItem.AccessibleName = "2";
+            this.balanceCourbe2ToolStripMenuItem.Name = "balanceCourbe2ToolStripMenuItem";
+            this.balanceCourbe2ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.balanceCourbe2ToolStripMenuItem.Text = "Balance/Courbe 2";
+            this.balanceCourbe2ToolStripMenuItem.Click += new System.EventHandler(this.balanceCourbeToolStripMenuItem_Click);
+            // 
+            // balanceCourbe3ToolStripMenuItem
+            // 
+            this.balanceCourbe3ToolStripMenuItem.AccessibleName = "3";
+            this.balanceCourbe3ToolStripMenuItem.Name = "balanceCourbe3ToolStripMenuItem";
+            this.balanceCourbe3ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.balanceCourbe3ToolStripMenuItem.Text = "Balance/Courbe 3";
+            this.balanceCourbe3ToolStripMenuItem.Click += new System.EventHandler(this.balanceCourbeToolStripMenuItem_Click);
+            // 
+            // sommeToolStripMenuItem
+            // 
+            this.sommeToolStripMenuItem.CheckOnClick = true;
+            this.sommeToolStripMenuItem.Name = "sommeToolStripMenuItem";
+            this.sommeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.sommeToolStripMenuItem.Text = "Somme";
+            this.sommeToolStripMenuItem.Click += new System.EventHandler(this.sommeToolStripMenuItem_Click);
             // 
             // analyseToolStripMenuItem
             // 
@@ -173,43 +203,12 @@
             this.analyseToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.analyseToolStripMenuItem.Text = "Analyse";
             // 
-            // balanceCourbe1ToolStripMenuItem
-            // 
-            this.balanceCourbe1ToolStripMenuItem.Name = "balanceCourbe1ToolStripMenuItem";
-            this.balanceCourbe1ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.balanceCourbe1ToolStripMenuItem.Text = "Balance/Courbe 1";
-            // 
-            // balanceCourbe2ToolStripMenuItem
-            // 
-            this.balanceCourbe2ToolStripMenuItem.Name = "balanceCourbe2ToolStripMenuItem";
-            this.balanceCourbe2ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.balanceCourbe2ToolStripMenuItem.Text = "Balance/Courbe 2";
-            // 
-            // balanceCourbe3ToolStripMenuItem
-            // 
-            this.balanceCourbe3ToolStripMenuItem.Name = "balanceCourbe3ToolStripMenuItem";
-            this.balanceCourbe3ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.balanceCourbe3ToolStripMenuItem.Text = "Balance/Courbe 3";
-            // 
-            // sommeToolStripMenuItem
-            // 
-            this.sommeToolStripMenuItem.Name = "sommeToolStripMenuItem";
-            this.sommeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.sommeToolStripMenuItem.Text = "Somme";
-            // 
             // lancerLanalyseToolStripMenuItem
             // 
             this.lancerLanalyseToolStripMenuItem.Name = "lancerLanalyseToolStripMenuItem";
             this.lancerLanalyseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.lancerLanalyseToolStripMenuItem.Text = "Lancer l\'analyse";
             this.lancerLanalyseToolStripMenuItem.Click += new System.EventHandler(this.lancerLanalyseToolStripMenuItem_Click);
-            // 
-            // ouvrirToolStripMenuItem
-            // 
-            this.ouvrirToolStripMenuItem.Name = "ouvrirToolStripMenuItem";
-            this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ouvrirToolStripMenuItem.Text = "Ouvrir";
-            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.ouvrirToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -228,13 +227,20 @@
             this.toolStripStatusLbl.Size = new System.Drawing.Size(0, 17);
             this.toolStripStatusLbl.Visible = false;
             // 
+            // touteLesCourbesToolStripMenuItem
+            // 
+            this.touteLesCourbesToolStripMenuItem.AccessibleName = "0";
+            this.touteLesCourbesToolStripMenuItem.Name = "touteLesCourbesToolStripMenuItem";
+            this.touteLesCourbesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.touteLesCourbesToolStripMenuItem.Text = "Toute les courbes";
+            this.touteLesCourbesToolStripMenuItem.Click += new System.EventHandler(this.balanceCourbeToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 435);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_open_file);
@@ -264,7 +270,6 @@
         private NationalInstruments.UI.WaveformPlot waveformPlot3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
         private NationalInstruments.UI.WaveformPlot waveformPlot4;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fichiersToolStripMenuItem;
@@ -278,6 +283,7 @@
         private System.Windows.Forms.ToolStripMenuItem lancerLanalyseToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLbl;
+        private System.Windows.Forms.ToolStripMenuItem touteLesCourbesToolStripMenuItem;
     }
 }
 

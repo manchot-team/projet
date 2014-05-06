@@ -155,17 +155,6 @@ namespace Manchot
             waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(data_a_regarder - 200, data_a_regarder + 300);
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            double[] measuredDataFusionned = new double[measuredData[1].Length];
-
-            for (int i = 0; i < measuredData[1].Length; i++)
-            {
-                measuredDataFusionned[i] = measuredData[0][i] + measuredData[1][i] + measuredData[2][i];
-            }
-            waveformPlot4.PlotY(measuredDataFusionned);
-
-        }
 
         private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -272,6 +261,71 @@ namespace Manchot
             {
                 listBox1.Items.Add(index);
                 Console.WriteLine(index);
+            }
+        }
+
+        private void balanceCourbeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // On récupere dynamiquement l'objet qui a lancé l'event : 
+            ToolStripMenuItem itemSender = sender as ToolStripMenuItem;
+            Console.WriteLine(itemSender.AccessibleName);
+
+            // En fonction de l'objet, on affiche un courbe ou l'autre
+            switch (Convert.ToInt16(itemSender.AccessibleName))
+            {
+                case 0:
+                    waveformPlot1.Visible = true;
+                    waveformPlot2.Visible = true;
+                    waveformPlot3.Visible = true;
+                    break;
+
+                case 1:
+                    Console.WriteLine("Affichage de la courbe 1");
+                    waveformPlot1.Visible = true;
+                    waveformPlot2.Visible = false;
+                    waveformPlot3.Visible = false;
+                    break;
+                case 2:
+                    Console.WriteLine("Affichage de la courbe 2");
+                    waveformPlot1.Visible = false;
+                    waveformPlot2.Visible = true;
+                    waveformPlot3.Visible = false;
+                    break;
+                case 3:
+                    Console.WriteLine("Affichage de la courbe 3");
+                    waveformPlot1.Visible = false;
+                    waveformPlot2.Visible = false;
+                    waveformPlot3.Visible = true;
+                    break;
+                default:
+                    Console.WriteLine("Ne rien faire");
+                    break;
+
+            }
+        }
+
+        private void sommeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem itemSender = sender as ToolStripMenuItem;
+            Console.WriteLine("Appuie sur le bouton somme, statut :" + itemSender.Checked);
+
+            if (itemSender.Checked)
+            {
+                //itemSender.Checked = false;
+                
+
+                double[] measuredDataFusionned = new double[measuredData[1].Length];
+
+                for (int i = 0; i < measuredData[1].Length; i++)
+                {
+                    measuredDataFusionned[i] = measuredData[0][i] + measuredData[1][i] + measuredData[2][i];
+                }
+                waveformPlot4.PlotY(measuredDataFusionned);
+                waveformPlot4.Visible = true;
+            }
+            else
+            {
+                waveformPlot4.Visible = false;
             }
         }
 
