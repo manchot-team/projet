@@ -10,7 +10,7 @@ using NationalInstruments;
 using NationalInstruments.UI;
 using NationalInstruments.NetworkVariable;
 using NationalInstruments.NetworkVariable.WindowsForms;
-using NationalInstruments.Tdms;
+//using NationalInstruments.Tdms;
 using NationalInstruments.UI.WindowsForms;
 using NationalInstruments.Controls;
 using NationalInstruments.Controls.Rendering;
@@ -41,7 +41,7 @@ namespace Manchot
             TdmsChannelCollection channels;
 
             //Open TDMS file
-            file = new TdmsFile("C:\\23-00-00 plateau 9.tdms", TdmsFileAccess.Read);
+            file = new TdmsFile("F:\\Téléchargement\\Plateaux456Courbe81.tdms", TdmsFileAccess.Read);
 
             //Read group data
             channelGroups = file.GetChannelGroups();
