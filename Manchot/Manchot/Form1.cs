@@ -158,6 +158,7 @@ namespace Manchot
 
         private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             // Déclaration des variables
             String[] input = new String[3];
             OpenFileDialog dialog = new OpenFileDialog();
@@ -204,6 +205,8 @@ namespace Manchot
                 files[i].Close();
             }
 
+            measuredData = Traitement.supressionBruit(measuredData);
+
             // Affichage des courbes :
             waveformPlot1.PlotY(measuredData[0]);
             waveformPlot2.PlotY(measuredData[1]);
@@ -216,6 +219,9 @@ namespace Manchot
             // Activation des menus Affichage et Analyse
             affichageToolStripMenuItem.Enabled = true;
             analyseToolStripMenuItem.Enabled = true;
+
+
+            
 
 
         }
