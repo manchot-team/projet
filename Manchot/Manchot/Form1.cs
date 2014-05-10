@@ -37,6 +37,7 @@ namespace Manchot
         //Initialisation variable globale
         double[][] measuredData = new double[3][];
         TdmsFile[] files = new TdmsFile[3];
+        DateTime dateFiles = new DateTime();
 
         private void btn_open_file_Click(object sender, EventArgs e)
         {
@@ -191,6 +192,7 @@ namespace Manchot
                 Console.WriteLine("FILE[" + i + "] CREATION = " + creationTime + "\n");
             }
 
+            dateFiles = File.GetLastWriteTime(files[0].Path);
            
 
             // Lecture des données TDMS :
@@ -265,7 +267,8 @@ namespace Manchot
 
             foreach (double index in data_a_regarder)
             {
-                listBox1.Items.Add(index);
+                Evenement ev = Traitement.dateEvenement(dateFiles,index);
+                listBox1.Items.Add(ev.absDebut);
                 Console.WriteLine(index);
             }
         }

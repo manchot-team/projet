@@ -41,7 +41,7 @@ namespace Manchot
             DateTime debut = date;
             Calendar myCal = CultureInfo.InvariantCulture.Calendar;
             // Ajout des secondes
-            debut = myCal.AddSeconds(debut,Convert.ToInt32(abscisse));
+            debut = myCal.AddMilliseconds(debut,Convert.ToInt32(abscisse));
 
             // Création de l'objet évenement :
             return new Evenement(abscisse,debut);
