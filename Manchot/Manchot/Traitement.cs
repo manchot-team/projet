@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,23 @@ namespace Manchot
 
             return resData;
 
+        }
+
+        /**
+         *  Calcule la date (heure et secondes) d'un évenement grâce à la correspondance entre
+         *  l'abscisse du début de l'évement et les métadonnées du fichier. 
+         */
+
+        public static Evenement dateEvenement(DateTime date,double abscisse)
+        {
+            DateTime debut = date;
+            Calendar myCal = CultureInfo.InvariantCulture.Calendar;
+            // Ajout des secondes
+            debut = myCal.AddSeconds(debut,Convert.ToInt32(abscisse));
+
+            // Création de l'objet évenement :
+            return new Evenement(abscisse,debut);
+            
         }
 
 
