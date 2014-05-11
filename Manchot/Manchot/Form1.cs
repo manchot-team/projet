@@ -130,15 +130,15 @@ namespace Manchot
             }
 
             comboBox1.DataSource = null;
-            Dictionary<double, string> valeurs = new Dictionary<double, string>();
-            valeurs.Add(0, "Vue d'ensemble");
+            Dictionary<Evenement, string> valeurs = new Dictionary<Evenement, string>();
+            valeurs.Add(new Evenement(), "Vue d'ensemble");
             Console.Write(data_a_regarder);
             foreach (double index in data_a_regarder)
             {
                 if (index != 0)
                 {
                     Evenement ev = Traitement.dateEvenement(dateFiles, index);
-                    valeurs.Add(ev.absDebut, ev.heure);
+                    valeurs.Add(ev, ev.heure);
                     //comboBox1.Items.Add(ev.absDebut);
                     Console.WriteLine(index);
                 }
@@ -224,7 +224,7 @@ namespace Manchot
                 if (comboBox1.SelectedIndex != 0)
                 {
                     Console.WriteLine("Element selectionné: " + comboBox1.SelectedItem.ToString());
-                    double data_a_regarder = ((KeyValuePair<double, string>)comboBox1.SelectedItem).Key;
+                    double data_a_regarder = ((KeyValuePair<Evenement, string>)comboBox1.SelectedItem).Key.absDebut;
                     waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
                     waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(data_a_regarder - 200, data_a_regarder + 300);
                 }

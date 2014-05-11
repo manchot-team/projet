@@ -19,7 +19,13 @@ namespace Manchot
         {
             this.absDebut = absDebut;
             this.dateDebut = debutDate;
-            this.heure = debutDate.ToString("mm:ss:fff");
+            this.heure = debutDate.ToString("mm:ss,fff");
+        }
+
+        public Evenement()
+        {
+            this.absDebut = 0;
+            this.dateDebut = new DateTime();
         }
 
         public void toString()
