@@ -78,7 +78,7 @@ namespace Manchot
 
             }
 
-            Console.Write(data_a_regarder);
+            comboBox1.Items.Clear();
             foreach (double index in data_a_regarder)
             {
                 comboBox1.Items.Add(index);
