@@ -219,18 +219,21 @@ namespace Manchot
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex != 0)
+            if (comboBox1.DataSource != null)
             {
-                Console.WriteLine("Element selectionné: " + comboBox1.SelectedItem.ToString());
-                double data_a_regarder = ((KeyValuePair<double, string>)comboBox1.SelectedItem).Key;
-                waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
-                waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(data_a_regarder - 200, data_a_regarder + 300);
-            }
-            else
-            {
-                Console.WriteLine("Vue globale");
-                waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
-                waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(0, measuredData[0].Length);
+                if (comboBox1.SelectedIndex != 0)
+                {
+                    Console.WriteLine("Element selectionné: " + comboBox1.SelectedItem.ToString());
+                    double data_a_regarder = ((KeyValuePair<double, string>)comboBox1.SelectedItem).Key;
+                    waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
+                    waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(data_a_regarder - 200, data_a_regarder + 300);
+                }
+                else
+                {
+                    Console.WriteLine("Vue globale");
+                    waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
+                    waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(0, measuredData[0].Length);
+                }
             }
         }
 
