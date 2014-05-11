@@ -130,13 +130,15 @@ namespace Manchot
             }
 
             Console.Write(data_a_regarder);
-
+            comboBox1.Items.Clear();
             foreach (double index in data_a_regarder)
             { 
                 Evenement ev = Traitement.dateEvenement(dateFiles,index);
-                comboBox1.Items.Add(index);
+                comboBox1.Items.Add(ev.absDebut);
                 Console.WriteLine(index);
             }
+            comboBox1.Items.Insert(0, "Vue d'ensemble");
+            comboBox1.SelectedIndex = 0;
         }
 
         private void balanceCourbeToolStripMenuItem_Click(object sender, EventArgs e)
