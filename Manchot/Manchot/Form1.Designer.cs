@@ -37,11 +37,11 @@
             this.waveformPlot4 = new NationalInstruments.UI.WaveformPlot();
             this.btn_open_file = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ouvrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.touteLesCourbesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.balanceCourbe1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.balanceCourbe2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.balanceCourbe3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +50,7 @@
             this.lancerLanalyseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
-            this.touteLesCourbesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.waveformGraph1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -105,6 +105,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(93, 385);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -112,15 +113,6 @@
             this.button1.Text = "Analyser";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(867, 43);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(173, 329);
-            this.listBox1.TabIndex = 4;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -161,6 +153,14 @@
             this.affichageToolStripMenuItem.Name = "affichageToolStripMenuItem";
             this.affichageToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.affichageToolStripMenuItem.Text = "Affichage";
+            // 
+            // touteLesCourbesToolStripMenuItem
+            // 
+            this.touteLesCourbesToolStripMenuItem.AccessibleName = "0";
+            this.touteLesCourbesToolStripMenuItem.Name = "touteLesCourbesToolStripMenuItem";
+            this.touteLesCourbesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.touteLesCourbesToolStripMenuItem.Text = "Toute les courbes";
+            this.touteLesCourbesToolStripMenuItem.Click += new System.EventHandler(this.balanceCourbeToolStripMenuItem_Click);
             // 
             // balanceCourbe1ToolStripMenuItem
             // 
@@ -227,25 +227,28 @@
             this.toolStripStatusLbl.Size = new System.Drawing.Size(0, 17);
             this.toolStripStatusLbl.Visible = false;
             // 
-            // touteLesCourbesToolStripMenuItem
+            // comboBox1
             // 
-            this.touteLesCourbesToolStripMenuItem.AccessibleName = "0";
-            this.touteLesCourbesToolStripMenuItem.Name = "touteLesCourbesToolStripMenuItem";
-            this.touteLesCourbesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.touteLesCourbesToolStripMenuItem.Text = "Toute les courbes";
-            this.touteLesCourbesToolStripMenuItem.Click += new System.EventHandler(this.balanceCourbeToolStripMenuItem_Click);
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(894, 43);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 8;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 435);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_open_file);
             this.Controls.Add(this.waveformGraph1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "SupraPingu";
@@ -269,7 +272,6 @@
         private NationalInstruments.UI.WaveformPlot waveformPlot2;
         private NationalInstruments.UI.WaveformPlot waveformPlot3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
         private NationalInstruments.UI.WaveformPlot waveformPlot4;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fichiersToolStripMenuItem;
@@ -284,6 +286,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLbl;
         private System.Windows.Forms.ToolStripMenuItem touteLesCourbesToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

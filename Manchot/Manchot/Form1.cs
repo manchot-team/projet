@@ -36,100 +36,41 @@ namespace Manchot
 
         //Initialisation variable globale
         double[][] measuredData = new double[3][];
-        TdmsFile[] files = new TdmsFile[3];
+        List<TdmsFile> files = new List<TdmsFile>();
 
+        /*******
+         * Fonctions évènements objets
+         *******/
         private void btn_open_file_Click(object sender, EventArgs e)
         {
-            String[] input = new String[3];
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter ="tdms files (*.tdms)|*.tdms|All files (*.*)|*.*";
-            dialog.Multiselect = true;
-            dialog.InitialDirectory = "C:";
-            dialog.Title = "Select a tdms file";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                input = dialog.FileNames;
-            }
-            /*if (input.Length == 0)
-            {
-                return;
-            }*/
-            //Console.WriteLine("Chemin fichier : " + input);
-            long numChanValues;
-            
-            
-            TdmsChannelGroupCollection channelGroups;
-            TdmsChannelCollection channels;
+            openAndReadFiles();
+        }
 
-            //Open TDMS file
-            for(int i = 0; i < input.Length; i++) {
-                files[i] = new TdmsFile(input[i], TdmsFileAccess.Read);
-                Console.WriteLine("FILE["+i+"] = "+files[i].Path+"\n");
-            }
-            Console.WriteLine(files.Length);
-            for (int i = 0; i < files.Length; i++)
-            {
-                channelGroups = files[i].GetChannelGroups();
-                channels = channelGroups[0].GetChannels();
-                numChanValues = channels[0].DataCount;
-                Console.WriteLine(numChanValues);
-                measuredData[i] = channels[0].GetData<double>();
-                files[i].Close();
-            }
-            //Read group data
-
-
-
-            //Console.WriteLine(numChanValues.ToString());
-            double max = 0;
-            double data_a_regarder = 0;
-            bool trouve = false;
-            for (int i = 0; i < measuredData[1].Length; i++)
-            {
-                if (measuredData[1][i] > max)
-                {
-                    max = measuredData[1][i];
-                }
-
-                if (measuredData[1][i] >= 2 && !trouve)
-                {
-                    data_a_regarder = i;
-                    trouve = true;
-                }
-                
-            }
-
-            Console.WriteLine(data_a_regarder);
-            waveformGraph1.YAxes[0].Mode = AxisMode.Fixed;
-            waveformGraph1.YAxes[0].Range = new NationalInstruments.UI.Range(0.0, 12.0);
-            waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
-            waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(data_a_regarder - 200, data_a_regarder + 300);
-            waveformPlot1.PlotY(measuredData[0]);
-            waveformPlot2.PlotY(measuredData[1]);
-            waveformPlot3.PlotY(measuredData[2]);
-
+        private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openAndReadFiles();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             double max = 0;
-            double[] data_a_regarder = new double[30];
+            List<double> data_a_regarder = new List<double>();
             bool trouve = false;
-            for (int i = 0, j = 0; i < measuredData[1].Length; i++)
+            for (int i = 0, j = 0; i < measuredData[0].Length; i++)
             {
-                if (measuredData[1][i] > max)
+                if (measuredData[0][i] > max)
                 {
-                    max = measuredData[1][i];
+                    max = measuredData[0][i];
                 }
 
-                if (measuredData[1][i] >= 2 && !trouve)
+                if (measuredData[0][i] >= 2 && !trouve)
                 {
-                    data_a_regarder[j] = i;
+                    data_a_regarder.Add(i);
                     j++;
                     trouve = true;
                 }
 
-                if (measuredData[1][i] <= 2 && trouve)
+                if (measuredData[0][i] <= 2 && trouve)
                 {
                     trouve = false;
                 }
@@ -137,96 +78,14 @@ namespace Manchot
             }
 
             Console.Write(data_a_regarder);
-
-            foreach ( double index in data_a_regarder ){
-                listBox1.Items.Add(index);
+            foreach (double index in data_a_regarder)
+            {
+                comboBox1.Items.Add(index);
                 Console.WriteLine(index);
             }
-            
-        }
+            comboBox1.Items.Insert(0, "Vue d'ensemble");
+            comboBox1.SelectedIndex = 0;
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine("Element selectionné: " + listBox1.SelectedItem.ToString());
-            double data_a_regarder = Convert.ToDouble(listBox1.SelectedItem.ToString());
-            waveformGraph1.YAxes[0].Mode = AxisMode.Fixed;
-            waveformGraph1.YAxes[0].Range = new NationalInstruments.UI.Range(0.0, 12.0);
-            waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
-            waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(data_a_regarder - 200, data_a_regarder + 300);
-        }
-
-
-        private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Déclaration des variables
-            String[] input = new String[3];
-            OpenFileDialog dialog = new OpenFileDialog();
-            TdmsChannelGroupCollection channelGroups;
-            TdmsChannelCollection channels;
-            long numChanValues;
-
-
-            dialog.Filter = "tdms files (*.tdms)|*.tdms|All files (*.*)|*.*";
-            dialog.Multiselect = true;
-            dialog.InitialDirectory = "C:";
-            dialog.Title = "Select a tdms file";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                input = dialog.FileNames;
-            }
-
-            
-
-
-            Console.WriteLine("3 fichiers ouvert");
-
-            //Open TDMS file
-            for (int i = 0; i < input.Length; i++)
-            {
-                files[i] = new TdmsFile(input[i], TdmsFileAccess.Read);
-                Console.WriteLine("FILE[" + i + "] = " + files[i].Path + "\n");
-                // Recupération des métadata : 
-                DateTime creationTime = File.GetLastWriteTime(files[i].Path);
-                Console.WriteLine("FILE[" + i + "] CREATION = " + creationTime + "\n");
-            }
-
-           
-
-            // Lecture des données TDMS :
-            //Console.WriteLine(files.Length);
-            for (int i = 0; i < files.Length; i++)
-            {
-                channelGroups = files[i].GetChannelGroups();
-                channels = channelGroups[0].GetChannels();
-                numChanValues = channels[0].DataCount;
-                //Console.WriteLine(numChanValues);
-                measuredData[i] = channels[0].GetData<double>();
-                files[i].Close();
-            }
-
-            // Affichage des courbes :
-            waveformPlot1.PlotY(measuredData[0]);
-            waveformPlot2.PlotY(measuredData[1]);
-            waveformPlot3.PlotY(measuredData[2]);
-
-            // Affichage d'un message flash dans la bar de status: 
-            Thread affiche = new Thread(new ParameterizedThreadStart(MessageFlash));
-            affiche.Start("Fichiers ouverts");
-
-            // Activation des menus Affichage et Analyse
-            affichageToolStripMenuItem.Enabled = true;
-            analyseToolStripMenuItem.Enabled = true;
-
-
-        }
-
-        public void MessageFlash(Object message)
-        {
-            toolStripStatusLbl.Visible = true;
-            toolStripStatusLbl.Text = (String) message;
-            //this.Refresh();
-            System.Threading.Thread.Sleep(4000);
-            toolStripStatusLbl.Visible = false;
         }
 
         private void lancerLanalyseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -259,7 +118,7 @@ namespace Manchot
 
             foreach (double index in data_a_regarder)
             {
-                listBox1.Items.Add(index);
+                comboBox1.Items.Add(index);
                 Console.WriteLine(index);
             }
         }
@@ -311,8 +170,6 @@ namespace Manchot
 
             if (itemSender.Checked)
             {
-                //itemSender.Checked = false;
-                
 
                 double[] measuredDataFusionned = new double[measuredData[1].Length];
 
@@ -329,6 +186,98 @@ namespace Manchot
             }
         }
 
-    }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex != 0)
+            {
+                Console.WriteLine("Element selectionné: " + comboBox1.SelectedItem.ToString());
+                double data_a_regarder = Convert.ToDouble(comboBox1.SelectedItem.ToString());
+                waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
+                waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(data_a_regarder - 200, data_a_regarder + 300);
+            }
+            else
+            {
+                Console.WriteLine("Vue globale");
+                waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
+                waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(0, measuredData[0].Length);
+            }
+        }
 
+        /*******
+         * Fonctions écrites
+         *******/
+        private void openAndReadFiles()
+        {
+            // Déclaration des variables
+            String[] input;
+            OpenFileDialog dialog = new OpenFileDialog();
+            TdmsChannelGroupCollection channelGroups;
+            TdmsChannelCollection channels;
+            long numChanValues;
+
+
+            dialog.Filter = "tdms files (*.tdms)|*.tdms|All files (*.*)|*.*";
+            dialog.Multiselect = true;
+            dialog.InitialDirectory = "C:";
+            dialog.Title = "Select a tdms file";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                input = dialog.FileNames;
+                Console.WriteLine(input.Length + " fichier(s) ouvert(s)");
+                if (input.Length == 3)
+                {
+                    //Open TDMS file
+                    for (int i = 0; i < input.Length; i++)
+                    {
+                        files.Add(new TdmsFile(input[i], TdmsFileAccess.Read));
+                        Console.WriteLine("FILE[" + i + "] = " + files[i].Path);
+                        // Recupération des métadata : 
+                        DateTime creationTime = File.GetLastWriteTime(files[i].Path);
+                        Console.WriteLine("FILE[" + i + "] CREATION = " + creationTime);
+                    }
+
+
+
+                    // Lecture des données TDMS
+                    for (int i = 0; i < files.Count; i++)
+                    {
+                        channelGroups = files[i].GetChannelGroups();
+                        channels = channelGroups[0].GetChannels();
+                        numChanValues = channels[0].DataCount;
+                        measuredData[i] = channels[0].GetData<double>();
+                        files[i].Close();
+                    }
+
+                    // Affichage des courbes
+                    waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
+                    waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(0, measuredData[0].Length);
+                    waveformPlot1.PlotY(measuredData[0]);
+                    waveformPlot2.PlotY(measuredData[1]);
+                    waveformPlot3.PlotY(measuredData[2]);
+
+                    // Affichage d'un message flash dans la bar de status
+                    Thread affiche = new Thread(new ParameterizedThreadStart(MessageFlash));
+                    affiche.Start("Fichiers ouverts");
+
+                    // Activation des menus Affichage et Analyse ainsi que le bouton d'analyse
+                    button1.Enabled = true;
+                    affichageToolStripMenuItem.Enabled = true;
+                    analyseToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Vous devez sélectionner les trois fichiers du plateau!", "Erreur de sélection");
+                }
+            }
+        }
+
+        public void MessageFlash(Object message)
+        {
+            toolStripStatusLbl.Visible = true;
+            toolStripStatusLbl.Text = (String)message;
+            //this.Refresh();
+            System.Threading.Thread.Sleep(4000);
+            toolStripStatusLbl.Visible = false;
+        }
+    }
 }
