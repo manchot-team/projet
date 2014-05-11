@@ -129,16 +129,29 @@ namespace Manchot
 
             }
 
+            comboBox1.DataSource = null;
+            Dictionary<double, string> valeurs = new Dictionary<double, string>();
+            valeurs.Add(0, "Vue d'ensemble");
             Console.Write(data_a_regarder);
-            comboBox1.Items.Clear();
             foreach (double index in data_a_regarder)
-            { 
-                Evenement ev = Traitement.dateEvenement(dateFiles,index);
-                comboBox1.Items.Add(ev.absDebut);
-                Console.WriteLine(index);
+            {
+                if (index != 0)
+                {
+                    Evenement ev = Traitement.dateEvenement(dateFiles, index);
+                    valeurs.Add(ev.absDebut, ev.heure);
+                    //comboBox1.Items.Add(ev.absDebut);
+                    Console.WriteLine(index);
+                }
             }
-            comboBox1.Items.Insert(0, "Vue d'ensemble");
+            comboBox1.DataSource = new BindingSource(valeurs, null);
+            comboBox1.DisplayMember = "Value";
+            comboBox1.ValueMember = "Key";
             comboBox1.SelectedIndex = 0;
+
+            if (!comboBox1.Enabled)
+            {
+                comboBox1.Enabled = true;
+            }
         }
 
         private void balanceCourbeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -209,7 +222,7 @@ namespace Manchot
             if (comboBox1.SelectedIndex != 0)
             {
                 Console.WriteLine("Element selectionné: " + comboBox1.SelectedItem.ToString());
-                double data_a_regarder = Convert.ToDouble(comboBox1.SelectedItem.ToString());
+                double data_a_regarder = ((KeyValuePair<double, string>)comboBox1.SelectedItem).Key;
                 waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
                 waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(data_a_regarder - 200, data_a_regarder + 300);
             }
@@ -233,6 +246,10 @@ namespace Manchot
             TdmsChannelCollection channels;
             long numChanValues;
 
+            //Clear de la liste des fichiers
+            files.Clear();
+            comboBox1.DataSource = null;
+            comboBox1.Enabled = false;
 
             dialog.Filter = "tdms files (*.tdms)|*.tdms|All files (*.*)|*.*";
             dialog.Multiselect = true;

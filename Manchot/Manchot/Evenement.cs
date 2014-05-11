@@ -12,13 +12,14 @@ namespace Manchot
         public double absDebut;
         public double absFin;
         public DateTime dateDebut;
-        public DateTime heure;
+        public string heure;
 
         // Constructor
         public Evenement(double absDebut,DateTime debutDate)
         {
             this.absDebut = absDebut;
             this.dateDebut = debutDate;
+            this.heure = debutDate.ToString("mm:ss:fff");
         }
 
         public void toString()
