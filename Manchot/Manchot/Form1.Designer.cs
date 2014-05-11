@@ -51,6 +51,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.exporterLesRésultatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.waveformGraph1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -197,7 +198,8 @@
             // analyseToolStripMenuItem
             // 
             this.analyseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lancerLanalyseToolStripMenuItem});
+            this.lancerLanalyseToolStripMenuItem,
+            this.exporterLesRésultatsToolStripMenuItem});
             this.analyseToolStripMenuItem.Enabled = false;
             this.analyseToolStripMenuItem.Name = "analyseToolStripMenuItem";
             this.analyseToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
@@ -206,7 +208,7 @@
             // lancerLanalyseToolStripMenuItem
             // 
             this.lancerLanalyseToolStripMenuItem.Name = "lancerLanalyseToolStripMenuItem";
-            this.lancerLanalyseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.lancerLanalyseToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.lancerLanalyseToolStripMenuItem.Text = "Lancer l\'analyse";
             this.lancerLanalyseToolStripMenuItem.Click += new System.EventHandler(this.lancerLanalyseToolStripMenuItem_Click);
             // 
@@ -237,6 +239,13 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 8;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // exporterLesRésultatsToolStripMenuItem
+            // 
+            this.exporterLesRésultatsToolStripMenuItem.Name = "exporterLesRésultatsToolStripMenuItem";
+            this.exporterLesRésultatsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.exporterLesRésultatsToolStripMenuItem.Text = "Exporter les résultats";
+            this.exporterLesRésultatsToolStripMenuItem.Click += new System.EventHandler(this.exporterLesRésultatsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -288,6 +297,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLbl;
         private System.Windows.Forms.ToolStripMenuItem touteLesCourbesToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ToolStripMenuItem exporterLesRésultatsToolStripMenuItem;
     }
 }
 

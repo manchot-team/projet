@@ -31,6 +31,28 @@ namespace Manchot
 
         }
 
+        public static double pourcentageBruit(double[][] measuredData)
+        {
+            int bruit = 0;
+            int taille = 0;
+            for (int i = 0; i < measuredData.Length; i++)
+            {
+                for (int j = 0; j < measuredData[i].Length; j++)
+                {
+                    if (measuredData[i][j] < 0.5)
+                    {
+                        bruit++;
+                    }
+                }
+            }
+            for (int i = 0; i < measuredData.Length; i++)
+            {
+                taille = taille + measuredData[i].Length;
+            }
+            Console.WriteLine(taille);
+            return (bruit/ taille);
+        }
+
         /**
          *  Calcule la date (heure et secondes) d'un évenement grâce à la correspondance entre
          *  l'abscisse du début de l'évement et les métadonnées du fichier. 

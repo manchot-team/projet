@@ -22,3 +22,15 @@ C:\Users\Simon\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.Propert
 C:\Users\Simon\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.csproj.GenerateResource.Cache
 C:\Users\Simon\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.exe.licenses
 C:\Users\Kevin\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.csprojResolveAssemblyReference.cache
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\bin\Debug\Manchot.exe.config
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.exe
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.pdb
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.csprojResolveAssemblyReference.cache
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.Form1.resources
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.Properties.Resources.resources
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.csproj.GenerateResource.Cache
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\obj\Debug\Manchot.exe.licenses
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\bin\Debug\Manchot.exe
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\bin\Debug\Manchot.pdb
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\bin\Debug\NationalInstruments.Common.Native.dll
+C:\Users\Redoine\Documents\GitHub\projet\Manchot\Manchot\bin\Debug\NationalInstruments.UI.Styles3D.dll

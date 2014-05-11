@@ -22,6 +22,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows;
 using System.Threading;
 using System.IO;
 
@@ -321,6 +322,31 @@ namespace Manchot
             //this.Refresh();
             System.Threading.Thread.Sleep(4000);
             toolStripStatusLbl.Visible = false;
+        }
+
+        private async void exporterLesRésultatsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            StringBuilder sb = new StringBuilder();
+            double bruit = Traitement.pourcentageBruit(measuredData);
+            sb.AppendLine(" Rapport d'Analyse des fichiers :");
+            sb.AppendLine(" **************************************************");
+            int i = 0;
+            for (; i < comboBox1.Items.Count; i++)
+            {
+                sb.AppendLine("Evenement n°" + (i + 1) + ": " + comboBox1.Items[i]);
+            }
+            sb.AppendLine("Votre fichier contient " + bruit + "% de bruit");
+            sb.AppendLine("");
+            sb.AppendLine("");
+            
+
+            using (StreamWriter outfile = new StreamWriter(mydocpath + @"\Rapport_tdms.txt", true))
+            {
+                await outfile.WriteAsync(sb.ToString());
+            }
+            
+
         }
     }
 }
