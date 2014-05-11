@@ -37,6 +37,7 @@ namespace Manchot
         //Initialisation variable globale
         double[][] measuredData = new double[3][];
         List<TdmsFile> files = new List<TdmsFile>();
+        DateTime dateFiles = new DateTime();
 
         /*******
          * Fonctions évènements objets
@@ -86,6 +87,20 @@ namespace Manchot
             comboBox1.Items.Insert(0, "Vue d'ensemble");
             comboBox1.SelectedIndex = 0;
 
+            measuredData = Traitement.supressionBruit(measuredData);
+
+            // Affichage des courbes :
+            waveformPlot1.PlotY(measuredData[0]);
+            waveformPlot2.PlotY(measuredData[1]);
+            waveformPlot3.PlotY(measuredData[2]);
+
+            // Affichage d'un message flash dans la bar de status: 
+            Thread affiche = new Thread(new ParameterizedThreadStart(MessageFlash));
+            affiche.Start("Fichiers ouverts");
+
+            // Activation des menus Affichage et Analyse
+            affichageToolStripMenuItem.Enabled = true;
+            analyseToolStripMenuItem.Enabled = true;
         }
 
         private void lancerLanalyseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,7 +132,8 @@ namespace Manchot
             Console.Write(data_a_regarder);
 
             foreach (double index in data_a_regarder)
-            {
+            { 
+                Evenement ev = Traitement.dateEvenement(dateFiles,index);
                 comboBox1.Items.Add(index);
                 Console.WriteLine(index);
             }
