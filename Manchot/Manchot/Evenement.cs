@@ -8,7 +8,7 @@ namespace Manchot
 {
     class Evenement
     {
-        // Field 
+        // Field
         public double absDebut;
         public double absFin;
         public DateTime dateDebut;

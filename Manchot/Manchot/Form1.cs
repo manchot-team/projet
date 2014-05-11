@@ -133,15 +133,20 @@ namespace Manchot
             Dictionary<Evenement, string> valeurs = new Dictionary<Evenement, string>();
             valeurs.Add(new Evenement(), "Vue d'ensemble");
             Console.Write(data_a_regarder);
+            Evenement ev_tmp = Traitement.dateEvenement(dateFiles, data_a_regarder[0]);
+            int compteur = 0;
             foreach (double index in data_a_regarder)
             {
                 if (index != 0)
                 {
                     Evenement ev = Traitement.dateEvenement(dateFiles, index);
-                    valeurs.Add(ev, ev.heure);
+                    if (ev.dateDebut.Second != ev_tmp.dateDebut.Second || compteur == 0)
+                            valeurs.Add(ev, ev.heure);
                     //comboBox1.Items.Add(ev.absDebut);
-                    Console.WriteLine(index);
+                    ev_tmp = ev;
+                    compteur++;
                 }
+                
             }
             comboBox1.DataSource = new BindingSource(valeurs, null);
             comboBox1.DisplayMember = "Value";
