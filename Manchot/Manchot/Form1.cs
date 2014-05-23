@@ -91,7 +91,7 @@ namespace Manchot
             measuredData = Traitement.supressionBruit(measuredData);
 
             // Affichage des courbes :
-            waveformPlot1.PlotY(measuredData[0]);
+            Courbe1.PlotY(measuredData[0]);
             waveformPlot2.PlotY(measuredData[1]);
             waveformPlot3.PlotY(measuredData[2]);
 
@@ -107,7 +107,7 @@ namespace Manchot
         private void lancerLanalyseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             double max = 0;
-            double[] data_a_regarder = new double[30];
+            double[] data_a_regarder = new double[200];
             bool trouve = false;
             for (int i = 0, j = 0; i < measuredData[1].Length; i++)
             {
@@ -170,26 +170,26 @@ namespace Manchot
             switch (Convert.ToInt16(itemSender.AccessibleName))
             {
                 case 0:
-                    waveformPlot1.Visible = true;
+                    Courbe1.Visible = true;
                     waveformPlot2.Visible = true;
                     waveformPlot3.Visible = true;
                     break;
 
                 case 1:
                     Console.WriteLine("Affichage de la courbe 1");
-                    waveformPlot1.Visible = true;
+                    Courbe1.Visible = true;
                     waveformPlot2.Visible = false;
                     waveformPlot3.Visible = false;
                     break;
                 case 2:
                     Console.WriteLine("Affichage de la courbe 2");
-                    waveformPlot1.Visible = false;
+                    Courbe1.Visible = false;
                     waveformPlot2.Visible = true;
                     waveformPlot3.Visible = false;
                     break;
                 case 3:
                     Console.WriteLine("Affichage de la courbe 3");
-                    waveformPlot1.Visible = false;
+                    Courbe1.Visible = false;
                     waveformPlot2.Visible = false;
                     waveformPlot3.Visible = true;
                     break;
@@ -295,7 +295,7 @@ namespace Manchot
                     // Affichage des courbes
                     waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
                     waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(0, measuredData[0].Length);
-                    waveformPlot1.PlotY(measuredData[0]);
+                    Courbe1.PlotY(measuredData[0]);
                     waveformPlot2.PlotY(measuredData[1]);
                     waveformPlot3.PlotY(measuredData[2]);
 

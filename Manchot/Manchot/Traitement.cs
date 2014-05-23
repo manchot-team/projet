@@ -50,7 +50,7 @@ namespace Manchot
                 taille = taille + measuredData[i].Length;
             }
             Console.WriteLine(taille);
-            return (bruit/ taille);
+            return (bruit*100/ taille);
         }
 
         /**
