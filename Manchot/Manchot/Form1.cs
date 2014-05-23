@@ -295,6 +295,12 @@ namespace Manchot
                     measuredData = Traitement.supressionBruit(measuredData);
                     measuredData = Traitement.filtreMoyenne(measuredData);
 
+                    for (int i = 0; i < measuredData.Length; i++ )
+                    {
+                        measuredData[i] = Traitement.filtreMedian(measuredData[i], 100);
+                        Console.WriteLine("Application du filtre median");
+                    }
+
                     // Affichage des courbes
                     waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
                     waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(0, measuredData[0].Length);

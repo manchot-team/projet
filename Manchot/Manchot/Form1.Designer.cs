@@ -59,6 +59,8 @@
             // 
             // waveformGraph1
             // 
+            this.waveformGraph1.ImmediateUpdates = true;
+            this.waveformGraph1.InteractionModeDefault = NationalInstruments.UI.GraphDefaultInteractionMode.PanX;
             this.waveformGraph1.Location = new System.Drawing.Point(12, 43);
             this.waveformGraph1.Name = "waveformGraph1";
             this.waveformGraph1.Plots.AddRange(new NationalInstruments.UI.WaveformPlot[] {
