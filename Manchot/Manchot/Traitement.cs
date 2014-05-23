@@ -9,6 +9,12 @@ namespace Manchot
 {
     class Traitement
     {
+        /// <summary>
+        /// Fonction permettant de supprimer le bruit proche de 0 : Lorsqu'une
+        /// valeur est inferieur à 0.5, la met à 0
+        /// </summary>
+        /// <param name="measuredData"></param>
+        /// <returns></returns>
         public static double[][] supressionBruit(double[][] measuredData )
         {
             double[][] resData = measuredData;
@@ -72,7 +78,6 @@ namespace Manchot
             }
 
             return f.ToArray();
-
 
         }
 
