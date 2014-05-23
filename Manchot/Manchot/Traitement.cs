@@ -31,6 +31,20 @@ namespace Manchot
 
         }
 
+        public static double[][] filtreMoyenne(double[][] measureData)
+        {
+            double[][] resData = measureData;
+
+            for (int i = 0; i < measureData.Length; i++)
+            {
+                for (int j = 1; j < measureData[i].Length - 1; j++)
+                {
+                    resData[i][j] = (resData[i][j - 1] + resData[i][j + 1]) / 2;
+                }
+            }
+            return resData;
+        }
+
         public static double pourcentageBruit(double[][] measuredData)
         {
             int bruit = 0;
