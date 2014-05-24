@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.waveformGraph1 = new NationalInstruments.UI.WindowsForms.WaveformGraph();
-            this.waveformPlot1 = new NationalInstruments.UI.WaveformPlot();
+            this.Courbe1 = new NationalInstruments.UI.WaveformPlot();
             this.xAxis1 = new NationalInstruments.UI.XAxis();
             this.yAxis1 = new NationalInstruments.UI.YAxis();
             this.waveformPlot2 = new NationalInstruments.UI.WaveformPlot();
@@ -48,10 +48,10 @@
             this.sommeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lancerLanalyseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exporterLesRésultatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.exporterLesRésultatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.waveformGraph1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -59,10 +59,12 @@
             // 
             // waveformGraph1
             // 
+            this.waveformGraph1.ImmediateUpdates = true;
+            this.waveformGraph1.InteractionModeDefault = NationalInstruments.UI.GraphDefaultInteractionMode.PanX;
             this.waveformGraph1.Location = new System.Drawing.Point(12, 43);
             this.waveformGraph1.Name = "waveformGraph1";
             this.waveformGraph1.Plots.AddRange(new NationalInstruments.UI.WaveformPlot[] {
-            this.waveformPlot1,
+            this.Courbe1,
             this.waveformPlot2,
             this.waveformPlot3,
             this.waveformPlot4});
@@ -74,10 +76,10 @@
             this.waveformGraph1.YAxes.AddRange(new NationalInstruments.UI.YAxis[] {
             this.yAxis1});
             // 
-            // waveformPlot1
+            // Courbe1
             // 
-            this.waveformPlot1.XAxis = this.xAxis1;
-            this.waveformPlot1.YAxis = this.yAxis1;
+            this.Courbe1.XAxis = this.xAxis1;
+            this.Courbe1.YAxis = this.yAxis1;
             // 
             // waveformPlot2
             // 
@@ -212,6 +214,13 @@
             this.lancerLanalyseToolStripMenuItem.Text = "Lancer l\'analyse";
             this.lancerLanalyseToolStripMenuItem.Click += new System.EventHandler(this.lancerLanalyseToolStripMenuItem_Click);
             // 
+            // exporterLesRésultatsToolStripMenuItem
+            // 
+            this.exporterLesRésultatsToolStripMenuItem.Name = "exporterLesRésultatsToolStripMenuItem";
+            this.exporterLesRésultatsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.exporterLesRésultatsToolStripMenuItem.Text = "Exporter les résultats";
+            this.exporterLesRésultatsToolStripMenuItem.Click += new System.EventHandler(this.exporterLesRésultatsToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -239,13 +248,6 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 8;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // exporterLesRésultatsToolStripMenuItem
-            // 
-            this.exporterLesRésultatsToolStripMenuItem.Name = "exporterLesRésultatsToolStripMenuItem";
-            this.exporterLesRésultatsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.exporterLesRésultatsToolStripMenuItem.Text = "Exporter les résultats";
-            this.exporterLesRésultatsToolStripMenuItem.Click += new System.EventHandler(this.exporterLesRésultatsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -275,7 +277,7 @@
         #endregion
 
         private NationalInstruments.UI.WindowsForms.WaveformGraph waveformGraph1;
-        private NationalInstruments.UI.WaveformPlot waveformPlot1;
+        private NationalInstruments.UI.WaveformPlot Courbe1;
         private NationalInstruments.UI.XAxis xAxis1;
         private NationalInstruments.UI.YAxis yAxis1;
         private System.Windows.Forms.Button btn_open_file;
