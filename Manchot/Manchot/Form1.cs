@@ -208,7 +208,7 @@ namespace Manchot
             if (itemSender.Checked)
             {
 
-                double[] measuredDataFusionned = new double[measuredData[1].Length];
+                Double[] measuredDataFusionned = new double[measuredData[1].Length];
 
                 for (int i = 0; i < measuredData[1].Length; i++)
                 {
@@ -348,5 +348,7 @@ namespace Manchot
             
 
         }
+
+            
     }
 }
