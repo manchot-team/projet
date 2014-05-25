@@ -32,36 +32,46 @@ namespace Manchot
         public void analyser(Double[] data)
         {
             int i = (int)this.absDebut;
-            bool sortie = false;
+            int pointValide = 0;
             bool croissant = true;
             bool stagnation = false;
             bool decroissant = false;
-            while(i < this.absFin && !sortie)
+           
+            while(i < this.absFin)
             {
-               // L'algo se présente ainsi : D'abord on essaye de déterminer dans quelle phase on est, ensuite on fonction de cette phase on fera des test différents
-                
-                if( (data[i+1000] < data[i] + 3))           // Le 3 ici représente pour moi le poids mini qu'un manchot va peser en montant sur la balance
+             
+
+                if (data[i] < data[i + 10])           // En rentrant dans ce if ca signifie que c'est la phase de croissance
                 {
+                    croissant = true;
+                    pointValide++;
+                }
+                else if(data[i] == data[i + 10] && croissant || data[i] == data[i + 10] && stagnation) // Ici c'est ou la stagnation ou la transition entre croissance et stagnation
+                {    
                     croissant = false;
-                    double borneSup = data[i-10] + 0.10;        // On prend une valeur 100 milisecondes plus tot et regardons si la valeur est proche à 0,10 près
-                    double borneInf = borneSup - 0.20;          // On pourrai conclure qu'on ai dans la "stagnation" donc l'étape intermediaire
-                    if (borneInf < data[i] && data[i] < borneSup)
-                    {
-                        stagnation = true;
-                    }
-                    else                                     // Si les 2 autres cas sont écartés, il ne reste que celui ci
-                    {
-                        decroissant = true;
-                    }
+                    stagnation = true;
+                    pointValide++;
                 }
-                    
-                if (data[i] < data[i - 30] && croissant)
+                else if(data[i] > data[i + 10] && stagnation || data[i] > data[i + 10] && decroissant) // Ici c'est décroissance ou transition stagnation à décroissance
                 {
-                    sortie = true;
+                    stagnation = false;
+                    decroissant = true;
+                    pointValide++;
                 }
-                else if (data[i] > data[i + 10])
-                {
-                }
+                
+      
+                i++;
+            }
+
+            // La variable pointValide est incrémenté quand un point est dans une phase, pour que ce soit un cas simple tout les points doivent 
+            // être dans une phase, donc cette variable doit être égale à l'ensemble des points avec une petite marge d'erreur
+            if (pointValide > this.absFin - this.absDebut - 20 && pointValide < this.absFin - this.absDebut + 20)
+            {
+                this.analyse = "Un manchot est passé sur le plateau";
+            }
+            else
+            {
+                this.analyse = "Notre algorithme n'a pas été capable de déterminer l'évenement en dehors de son éxistence";
             }
         
         }
