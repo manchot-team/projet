@@ -37,6 +37,7 @@ namespace Manchot
 
         //Initialisation variable globale
         double[][] measuredData = new double[3][];
+        Double[] measuredDataFusionned;
         List<TdmsFile> files = new List<TdmsFile>();
         DateTime dateFiles = new DateTime();
 
@@ -91,7 +92,7 @@ namespace Manchot
             measuredData = Traitement.supressionBruit(measuredData);
 
             // Affichage des courbes :
-            Courbe1.PlotY(measuredData[0]);
+            waveformPlot1.PlotY(measuredData[0]);
             waveformPlot2.PlotY(measuredData[1]);
             waveformPlot3.PlotY(measuredData[2]);
 
@@ -107,7 +108,7 @@ namespace Manchot
         private void lancerLanalyseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             double max = 0;
-            double[] data_a_regarder = new double[200];
+            double[] data_a_regarder = new double[30];
             bool trouve = false;
             for (int i = 0, j = 0; i < measuredData[1].Length; i++)
             {
@@ -142,7 +143,11 @@ namespace Manchot
                 {
                     Evenement ev = Traitement.dateEvenement(dateFiles, index);
                     if (ev.dateDebut.Second != ev_tmp.dateDebut.Second || compteur == 0)
-                            valeurs.Add(ev, ev.heure);
+                    {
+                        ev_tmp.absFin = index - 50;
+                        ev.analyser(measuredDataFusionned);
+                        valeurs.Add(ev, ev.heure);
+                    }
                     //comboBox1.Items.Add(ev.absDebut);
                     ev_tmp = ev;
                     compteur++;
@@ -170,26 +175,26 @@ namespace Manchot
             switch (Convert.ToInt16(itemSender.AccessibleName))
             {
                 case 0:
-                    Courbe1.Visible = true;
+                    waveformPlot1.Visible = true;
                     waveformPlot2.Visible = true;
                     waveformPlot3.Visible = true;
                     break;
 
                 case 1:
                     Console.WriteLine("Affichage de la courbe 1");
-                    Courbe1.Visible = true;
+                    waveformPlot1.Visible = true;
                     waveformPlot2.Visible = false;
                     waveformPlot3.Visible = false;
                     break;
                 case 2:
                     Console.WriteLine("Affichage de la courbe 2");
-                    Courbe1.Visible = false;
+                    waveformPlot1.Visible = false;
                     waveformPlot2.Visible = true;
                     waveformPlot3.Visible = false;
                     break;
                 case 3:
                     Console.WriteLine("Affichage de la courbe 3");
-                    Courbe1.Visible = false;
+                    waveformPlot1.Visible = false;
                     waveformPlot2.Visible = false;
                     waveformPlot3.Visible = true;
                     break;
@@ -208,7 +213,7 @@ namespace Manchot
             if (itemSender.Checked)
             {
 
-                Double[] measuredDataFusionned = new double[measuredData[1].Length];
+                measuredDataFusionned = new double[measuredData[1].Length];
 
                 for (int i = 0; i < measuredData[1].Length; i++)
                 {
@@ -292,19 +297,10 @@ namespace Manchot
                         files[i].Close();
                     }
 
-                    measuredData = Traitement.supressionBruit(measuredData);
-                    measuredData = Traitement.filtreMoyenne(measuredData);
-
-                    for (int i = 0; i < measuredData.Length; i++ )
-                    {
-                        measuredData[i] = Traitement.filtreMedian(measuredData[i], 100);
-                        Console.WriteLine("Application du filtre median");
-                    }
-
                     // Affichage des courbes
                     waveformGraph1.XAxes[0].Mode = AxisMode.Fixed;
                     waveformGraph1.XAxes[0].Range = new NationalInstruments.UI.Range(0, measuredData[0].Length);
-                    Courbe1.PlotY(measuredData[0]);
+                    waveformPlot1.PlotY(measuredData[0]);
                     waveformPlot2.PlotY(measuredData[1]);
                     waveformPlot3.PlotY(measuredData[2]);
 
@@ -344,6 +340,7 @@ namespace Manchot
             for (; i < comboBox1.Items.Count; i++)
             {
                 sb.AppendLine("Evenement n°" + (i + 1) + ": " + comboBox1.Items[i]);
+                sb.AppendLine("Analyse : " + ((KeyValuePair<Evenement, string>)comboBox1.Items[i]).Key.analyse);
             }
             sb.AppendLine("Votre fichier contient " + bruit + "% de bruit");
             sb.AppendLine("");
