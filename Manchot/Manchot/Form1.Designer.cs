@@ -35,8 +35,6 @@
             this.waveformPlot2 = new NationalInstruments.UI.WaveformPlot();
             this.waveformPlot3 = new NationalInstruments.UI.WaveformPlot();
             this.waveformPlot4 = new NationalInstruments.UI.WaveformPlot();
-            this.btn_open_file = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ouvrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,27 +93,6 @@
             // 
             this.waveformPlot4.XAxis = this.xAxis1;
             this.waveformPlot4.YAxis = this.yAxis1;
-            // 
-            // btn_open_file
-            // 
-            this.btn_open_file.Location = new System.Drawing.Point(12, 385);
-            this.btn_open_file.Name = "btn_open_file";
-            this.btn_open_file.Size = new System.Drawing.Size(75, 23);
-            this.btn_open_file.TabIndex = 2;
-            this.btn_open_file.Text = "Ouvrir fichier";
-            this.btn_open_file.UseVisualStyleBackColor = true;
-            this.btn_open_file.Click += new System.EventHandler(this.btn_open_file_Click);
-            // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(93, 385);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Analyser";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // menuStrip1
             // 
@@ -256,8 +233,6 @@
             this.ClientSize = new System.Drawing.Size(1058, 435);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn_open_file);
             this.Controls.Add(this.waveformGraph1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -280,10 +255,8 @@
         private NationalInstruments.UI.WaveformPlot waveformPlot1;
         private NationalInstruments.UI.XAxis xAxis1;
         private NationalInstruments.UI.YAxis yAxis1;
-        private System.Windows.Forms.Button btn_open_file;
         private NationalInstruments.UI.WaveformPlot waveformPlot2;
         private NationalInstruments.UI.WaveformPlot waveformPlot3;
-        private System.Windows.Forms.Button button1;
         private NationalInstruments.UI.WaveformPlot waveformPlot4;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fichiersToolStripMenuItem;
