@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Manchot</name>
+    </assembly>
+    <members>
+        <member name="F:Manchot.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Manchot.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Manchot.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Manchot.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="M:Manchot.Traitement.supressionBruit(System.Double[][])">
+            <summary>
+            Fonction permettant de supprimer le bruit proche de 0 : Lorsqu'une
+            valeur est inferieur à 0.5, la met à 0
+            </summary>
+            <param name="measuredData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Manchot.Traitement.dateEvenement(System.DateTime,System.Double)">
+            Calcule la date (heure et secondes) d'un évenement grâce à la correspondance entre
+            l'abscisse du début de l'évement et les métadonnées du fichier. 
+        </member>
+        <member name="T:Manchot.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Manchot.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Manchot.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

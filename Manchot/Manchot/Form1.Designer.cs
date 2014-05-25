@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.waveformGraph1 = new NationalInstruments.UI.WindowsForms.WaveformGraph();
-            this.Courbe1 = new NationalInstruments.UI.WaveformPlot();
+            this.waveformPlot1 = new NationalInstruments.UI.WaveformPlot();
             this.xAxis1 = new NationalInstruments.UI.XAxis();
             this.yAxis1 = new NationalInstruments.UI.YAxis();
             this.waveformPlot2 = new NationalInstruments.UI.WaveformPlot();
@@ -64,7 +64,7 @@
             this.waveformGraph1.Location = new System.Drawing.Point(12, 43);
             this.waveformGraph1.Name = "waveformGraph1";
             this.waveformGraph1.Plots.AddRange(new NationalInstruments.UI.WaveformPlot[] {
-            this.Courbe1,
+            this.waveformPlot1,
             this.waveformPlot2,
             this.waveformPlot3,
             this.waveformPlot4});
@@ -76,10 +76,10 @@
             this.waveformGraph1.YAxes.AddRange(new NationalInstruments.UI.YAxis[] {
             this.yAxis1});
             // 
-            // Courbe1
+            // waveformPlot1
             // 
-            this.Courbe1.XAxis = this.xAxis1;
-            this.Courbe1.YAxis = this.yAxis1;
+            this.waveformPlot1.XAxis = this.xAxis1;
+            this.waveformPlot1.YAxis = this.yAxis1;
             // 
             // waveformPlot2
             // 
@@ -277,7 +277,7 @@
         #endregion
 
         private NationalInstruments.UI.WindowsForms.WaveformGraph waveformGraph1;
-        private NationalInstruments.UI.WaveformPlot Courbe1;
+        private NationalInstruments.UI.WaveformPlot waveformPlot1;
         private NationalInstruments.UI.XAxis xAxis1;
         private NationalInstruments.UI.YAxis yAxis1;
         private System.Windows.Forms.Button btn_open_file;
