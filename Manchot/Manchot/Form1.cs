@@ -104,7 +104,11 @@ namespace Manchot
             affichageToolStripMenuItem.Enabled = true;
             analyseToolStripMenuItem.Enabled = true;
         }
-
+        /// <summary>
+        /// Fonction permettant de lancer l'analyse sur les fichiers et detecte ainsi les évenements
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lancerLanalyseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             double max = 0;
@@ -165,6 +169,11 @@ namespace Manchot
             }
         }
 
+        /// <summary>
+        /// Fonction dynamique permettant de gérer l'affichage des courbes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void balanceCourbeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // On récupere dynamiquement l'objet qui a lancé l'event : 
@@ -205,6 +214,11 @@ namespace Manchot
             }
         }
 
+        /// <summary>
+        /// Permet de faire la somme des trois balances
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sommeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem itemSender = sender as ToolStripMenuItem;
@@ -228,6 +242,11 @@ namespace Manchot
             }
         }
 
+        /// <summary>
+        /// Fonction qui gere un click sur la combobox des evenements
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.DataSource != null)
@@ -248,9 +267,9 @@ namespace Manchot
             }
         }
 
-        /*******
-         * Fonctions écrites
-         *******/
+        /// <summary>
+        /// Fonction gérant l'ouverture des fichiers et l'affichages des courbes
+        /// </summary>
         private void openAndReadFiles()
         {
             // Déclaration des variables
@@ -329,6 +348,10 @@ namespace Manchot
             }
         }
 
+        /// <summary>
+        /// Permet d'afficher un message d'un durée de deux secondes dans la boite de message 
+        /// </summary>
+        /// <param name="message">Message à afficher</param>
         public void MessageFlash(Object message)
         {
             toolStripStatusLbl.Visible = true;
@@ -338,6 +361,11 @@ namespace Manchot
             toolStripStatusLbl.Visible = false;
         }
 
+        /// <summary>
+        /// Fonctoin gerant l'exportation des résultats dans un fichier .txt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void exporterLesRésultatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

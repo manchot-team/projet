@@ -1,0 +1,75 @@
+\hypertarget{class_manchot_1_1_traitement}{\section{Manchot.\+Traitement Class Reference}
+\label{class_manchot_1_1_traitement}\index{Manchot.\+Traitement@{Manchot.\+Traitement}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_manchot_1_1_traitement_afedd59a6201aa10f4c57d332efd86407}{supression\+Bruit} (double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} measured\+Data)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de supprimer le bruit proche de 0 \+: Lorsqu'une valeur est inferieur à 0.\+5, la met à 0 \end{DoxyCompactList}\item 
+static double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_manchot_1_1_traitement_aa0d655f8bef3619bdfc36ea4fd47d6e7}{filtre\+Moyenne} (double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} measure\+Data)
+\begin{DoxyCompactList}\small\item\em Fonction de filtrage \+: permet de lisser la courbe en utilisant un algorithme de filtre moyenneur. Chaque valeur et la moyenne de la valeur la précédente et la valeur la succédant \end{DoxyCompactList}\item 
+\hypertarget{class_manchot_1_1_traitement_a59f8016b30fb1b50dd4e1c59db6854b1}{static double {\bfseries median} (double\mbox{[}$\,$\mbox{]} arr)}\label{class_manchot_1_1_traitement_a59f8016b30fb1b50dd4e1c59db6854b1}
+
+\item 
+\hypertarget{class_manchot_1_1_traitement_aed43f620f20d15a68db0f31ef11e7b78}{static double\mbox{[}$\,$\mbox{]} {\bfseries filtre\+Median} (double\mbox{[}$\,$\mbox{]} arr, double wl)}\label{class_manchot_1_1_traitement_aed43f620f20d15a68db0f31ef11e7b78}
+
+\item 
+\hypertarget{class_manchot_1_1_traitement_a36afab1b1bb57a7bc320d761c7654cda}{static double {\bfseries pourcentage\+Bruit} (double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} measured\+Data)}\label{class_manchot_1_1_traitement_a36afab1b1bb57a7bc320d761c7654cda}
+
+\item 
+static \hyperlink{class_manchot_1_1_evenement}{Evenement} \hyperlink{class_manchot_1_1_traitement_aa07e00505b10ae01c11fcfa6d62da67f}{date\+Evenement} (Date\+Time date, double abscisse)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_manchot_1_1_traitement_aa07e00505b10ae01c11fcfa6d62da67f}{\index{Manchot\+::\+Traitement@{Manchot\+::\+Traitement}!date\+Evenement@{date\+Evenement}}
+\index{date\+Evenement@{date\+Evenement}!Manchot\+::\+Traitement@{Manchot\+::\+Traitement}}
+\subsubsection[{date\+Evenement}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Evenement} Manchot.\+Traitement.\+date\+Evenement (
+\begin{DoxyParamCaption}
+\item[{Date\+Time}]{date, }
+\item[{double}]{abscisse}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_manchot_1_1_traitement_aa07e00505b10ae01c11fcfa6d62da67f}
+Calcule la date (heure et secondes) d'un évenement grâce à la correspondance entre l'abscisse du début de l'évement et les métadonnées du fichier. \hypertarget{class_manchot_1_1_traitement_aa0d655f8bef3619bdfc36ea4fd47d6e7}{\index{Manchot\+::\+Traitement@{Manchot\+::\+Traitement}!filtre\+Moyenne@{filtre\+Moyenne}}
+\index{filtre\+Moyenne@{filtre\+Moyenne}!Manchot\+::\+Traitement@{Manchot\+::\+Traitement}}
+\subsubsection[{filtre\+Moyenne}]{\setlength{\rightskip}{0pt plus 5cm}static double \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Manchot.\+Traitement.\+filtre\+Moyenne (
+\begin{DoxyParamCaption}
+\item[{double}]{measure\+Data\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_manchot_1_1_traitement_aa0d655f8bef3619bdfc36ea4fd47d6e7}
+
+
+Fonction de filtrage \+: permet de lisser la courbe en utilisant un algorithme de filtre moyenneur. Chaque valeur et la moyenne de la valeur la précédente et la valeur la succédant 
+
+
+\begin{DoxyParams}{Parameters}
+{\em measure\+Data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_manchot_1_1_traitement_afedd59a6201aa10f4c57d332efd86407}{\index{Manchot\+::\+Traitement@{Manchot\+::\+Traitement}!supression\+Bruit@{supression\+Bruit}}
+\index{supression\+Bruit@{supression\+Bruit}!Manchot\+::\+Traitement@{Manchot\+::\+Traitement}}
+\subsubsection[{supression\+Bruit}]{\setlength{\rightskip}{0pt plus 5cm}static double \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Manchot.\+Traitement.\+supression\+Bruit (
+\begin{DoxyParamCaption}
+\item[{double}]{measured\+Data\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_manchot_1_1_traitement_afedd59a6201aa10f4c57d332efd86407}
+
+
+Fonction permettant de supprimer le bruit proche de 0 \+: Lorsqu'une valeur est inferieur à 0.\+5, la met à 0 
+
+
+\begin{DoxyParams}{Parameters}
+{\em measured\+Data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Kévin/\+Documents/\+Git\+Hub/projet/\+Manchot/\+Manchot/Traitement.\+cs\end{DoxyCompactItemize}

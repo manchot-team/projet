@@ -8,14 +8,33 @@ namespace Manchot
 {
     class Evenement
     {
-        // Field
+        /// <summary>
+        /// Abscisse du début de l'évenement
+        /// </summary>
         public double absDebut;
+        /// <summary>
+        /// Abscisse de fin de l'évenement
+        /// </summary>
         public double absFin;
+        /// <summary>
+        /// Date de début de l'évenement
+        /// Calculé grâce à l'abscisse et les métadata du fichier
+        /// </summary>
         public DateTime dateDebut;
+        /// <summary>
+        /// Heure à laquelle l'évenement survient
+        /// </summary>
         public string heure;
+        /// <summary>
+        /// Résultat de l'analyse pour l'évenement
+        /// </summary>
         public string analyse;
 
-        // Constructor
+        /// <summary>
+        /// Surchage du constructeur de la classe evenement
+        /// </summary>
+        /// <param name="absDebut">L'abscisse du début de l'évenement </param>
+        /// <param name="debutDate">La date du début de l'évenement</param>
         public Evenement(double absDebut,DateTime debutDate)
         {
             this.absDebut = absDebut;
@@ -23,12 +42,19 @@ namespace Manchot
             this.heure = debutDate.ToString("mm:ss,fff");
         }
 
+        /// <summary>
+        /// Constructeur de la classe evenement
+        /// </summary>
         public Evenement()
         {
             this.absDebut = 0;
             this.dateDebut = new DateTime();
         }
 
+        /// <summary>
+        /// L'algorihtme d'analyse de détection des cas simples. Permet de completer le champ anlayse de l'evenement
+        /// </summary>
+        /// <param name="data"> Tableau de Double contenant les données</param>
         public void analyser(Double[] data)
         {
             int i = (int)this.absDebut;

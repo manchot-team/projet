@@ -37,6 +37,13 @@ namespace Manchot
 
         }
 
+        /// <summary>
+        /// Fonction de filtrage : permet de lisser la courbe en utilisant un algorithme
+        /// de filtre moyenneur. Chaque valeur et la moyenne de la valeur la précédente et la valeur
+        /// la succédant
+        /// </summary>
+        /// <param name="measureData">Contient les tableaux de données</param>
+        /// <returns>Un tableau des tableaux de données, après l'application du filtre moyenneur</returns>
         public static double[][] filtreMoyenne(double[][] measureData)
         {
             double[][] resData = measureData;
@@ -51,6 +58,11 @@ namespace Manchot
             return resData;
         }
 
+        /// <summary>
+        /// Calcul le médian d'un tableau de double à une dimension
+        /// </summary>
+        /// <param name="arr">Array : tableau de double</param>
+        /// <returns>Le médian du tableau</returns>
         public static double median(double[] arr)
         {
             double[] s = arr;
@@ -59,6 +71,13 @@ namespace Manchot
             return s[mil];
         }
 
+        /// <summary>
+        /// Applique un filtre médian de taille wl, sur un tableau arr de double, permettant ainsi 
+        /// de supprimer les valeurs abbérantes
+        /// </summary>
+        /// <param name="arr">Array : Le tableau à traiter</param>
+        /// <param name="wl">WindowLenght : la taille de la fenetre glissante du filtre médian</param>
+        /// <returns> Retourne le tableau avec les valeurs abbérantes supprimer par le filtre médian</returns>
         public static double[] filtreMedian(double[] arr, double wl) {
             if (arr.Length < wl)
                 return arr;
@@ -81,6 +100,11 @@ namespace Manchot
 
         }
 
+        /// <summary>
+        /// Calcul le pourcentage de bruit dans les fichiers TDMS données
+        /// </summary>
+        /// <param name="measuredData">Contient les données des fichiers TDMS</param>
+        /// <returns>Pourcentage de bruit des fichiers TDMS</returns>
         public static double pourcentageBruit(double[][] measuredData)
         {
             int bruit = 0;
